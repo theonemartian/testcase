@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add this to the <head> section of your template -->
+
+
+	<title>Test case generator by Yuvi</title>
+	<style>
+		body {
+			background-color: #1a1a1a;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		h1 {
+			font-size: 40px;
+			margin-top: 100px;
+		}
+		form {
+			display: inline-block;
+			margin-top: 30px;
+			text-align: left;
+			width: 70%;
+		}
+        input {
+			background-color: #222;
+			border: none;
+			color: #fff;
+			font-size: 16px;
+            margin-bottom: 20px;
+			padding: 10px;
+			resize: none;
+			width: 100%;
+        }
+		textarea {
+			background-color: #222;
+			border: none;
+			color: #fff;
+			font-size: 16px;
+			height: 300px;
+			margin-bottom: 20px;
+			padding: 10px;
+			resize: none;
+			width: 100%;
+		}
+		button {
+			background-color: #007aff;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 20px;
+			margin-right: 10px;
+			padding: 10px 20px;
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #005aff;
+		}
+		#download {
+			background-color: #555;
+		}
+	</style>
+</head>
+<body>
+	<h1>Test Case generator by Yuvi</h1>
+	<form action="/generate/" method="post">
+        {% csrf_token %} 
+        <input id="api_key" placeholder="Enter your api key " name='api_key'></input>
+        <input id="heading" placeholder="Enter your feature name " name='heading'></input>
+		<textarea id="input" placeholder="Enter your feature description or PRD text (up to 3500 characters , non sensitive data). More detailed description results in better output.. :)" name='feature'></textarea>
+		<br>
+		<button id="generate" type='submit'>Generate</button>
+	
+	</form>
+	
+<h3>Note: In order to generate openAI API key please visit <a href="https://platform.openai.com/account/api-keys"> here </a></h3>
+  
+</body>
+</html>

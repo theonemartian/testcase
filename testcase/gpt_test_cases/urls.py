@@ -4,5 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.home),
     path('generate/', views.generate),
+    path('generate-image/', views.generate_image),
+
     
 ]

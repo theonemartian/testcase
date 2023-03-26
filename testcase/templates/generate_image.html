@@ -1,0 +1,75 @@
+<html><head>
+	<title> Image generator</title>
+<style>
+    body {
+        background-color: #1a1a1a;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    h1 {
+        font-size: 40px;
+        margin-top: 100px;
+    }
+    form {
+        display: inline-block;
+        margin-top: 30px;
+        text-align: left;
+        width: 70%;
+    }
+    input {
+        background-color: #222;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 10px;
+        resize: none;
+        width: 100%;
+    }
+    textarea {
+        background-color: #222;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        height: 300px;
+        margin-bottom: 20px;
+        padding: 10px;
+        resize: none;
+        width: 100%;
+    }
+    button {
+        background-color: #007aff;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        margin-right: 10px;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #005aff;
+    }
+    #download {
+        background-color: #555;
+    }
+
+</style>
+</head>
+<form method="post">
+    {% csrf_token %}
+    <label for="input_text">Enter text:</label>
+    <input type="text" name="input_text" id="input_text">
+    <button type="submit">Generate image</button>
+</form>
+
+{% if image_url1 %}
+    <img src="{{ image_url1 }}" alt="Generated image">
+    <img src="{{ image_url2}}" alt="Generated image 2">
+{% endif %}
+</html>

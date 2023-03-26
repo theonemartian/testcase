@@ -59,6 +59,30 @@ def generate(request):
     my_dict={'df': df.to_html(),'heading': heading}
     return render(request,'generate.html',context=my_dict)   
 
+
+import openai
+from django.shortcuts import render
+
+def generate_image(request):
+    if request.method == 'POST':
+        input_text = request.POST['input_text']
+
+        openai.api_key = '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'
+
+        response = openai.Image.create(
+          
+            prompt=f'generate image for : {input_text}',
+            n=2,
+            size="1024x1024"
+        )
+
+        image_url1 = response.data[0].url
+        image_url2 = response.data[1].url
+
+        return render(request, 'generate_image.html', {'image_url1': image_url1,'image_url2': image_url2})
+
+    return render(request, 'generate_image.html')
+
  
 
 
